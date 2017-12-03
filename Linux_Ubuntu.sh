@@ -324,6 +324,7 @@ createUser() {
 ##Changes all the user passwords
 chgPasswd(){
 echo "$LogTime uss: [$UserName]# Changing all the user passwords to Cyb3rPatr!0t$." >> output.log
+	##Look for valid users that have different UID that not 1000+
 	cut -d: -f1,3 /etc/passwd | egrep ':[0-9]{4}$' | cut -d: -f1 > users
 	##Looks for users with the UID and GID of 0
 	hUSER=`cut -d: -f1,3 /etc/passwd | egrep ':[0]{1}$' | cut -d: -f1`
@@ -347,7 +348,7 @@ echo "$LogTime uss: [$UserName]# Passwords have been changed." >> output.log
 passPol() {
 echo "$LogTime uss: [$UserName]# Setting password policy..." >> output.log
 echo "$LogTime uss: [$UserName]# Installing Craklib..." >> output.log
-	apt-get install libpam-craklib || yum install libpam-cracklib
+	apt-get install libpam-cracklib || yum install libpam-cracklib
 	wait
 echo "$LogTime uss: [$UserName]# Cracklib installed." >> output.log
 	sed -i.bak -e 's/PASS_MAX_DAYS\t[[:digit:]]\+/PASS_MAX_DAYS\t90/' /etc/login.defs
@@ -498,7 +499,7 @@ echo "$LogTime uss: [$UserName]# Removing hacking tools..." >> output.log
         	then
       	        	apt-get autoremove -y --purge apache2 >> output.log
 			else
-            	if [ -e /etc/apache2/apache2.conf ]
+            		if [ -e /etc/apache2/apache2.conf ]
 				then
 					chown -R root:root /etc/apache2
 					chown -R root:root /etc/apache
@@ -610,7 +611,7 @@ echo "$LogTime uss: [$UserName]# Samba has been removed." >> output.log
 		fi
 	else
 		echo "FTP has not been found."
-		sleep1
+		sleep 1
 	fi
 ##Looks for TFTPD
 	dpkg -l | grep tftpd >> output.log
@@ -853,7 +854,7 @@ sudoers() {
 	cat /etc/sudoers | grep timestamp_timeout >> /dev/null
 	if [ $? -eq 0 ]
 	then
-		TIME = `cat /etc/sudoers | grep timestamp_timeout | cut -f2 | cut -d= -f2`
+		TIME=`cat /etc/sudoers | grep timestamp_timeout | cut -f2 | cut -d= -f2`
 		echo "## Time out value has been set to $TIME Please go change it or remove it." >> postScript
 	fi
 
