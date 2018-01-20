@@ -20,3 +20,4 @@ Different cyberpatriot checklists and scripts I wrote
 - This is just a simple web scraper that I made with python3 that will scrape all the scores from the cyberpatriot scoreboard and put them in an excel spreadsheet for future use.
 
 *Please note that none of these are meant to be used for competition*
+*Doing so will result in disqualification*
