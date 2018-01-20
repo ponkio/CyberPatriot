@@ -9,6 +9,9 @@ Windows Checklist
 
 Linux_Ubuntu.sh
 - Script that is written to do everything in the checklist plus more.
+- Script not perfected, still requires a lot of work.
 
 Windows.bat
 - Script that does basic securing, checklist is still needed to fully harden the system.
+
+*Please note that none of these are meant to be used for competition*
