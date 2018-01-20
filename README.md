@@ -14,4 +14,8 @@ Linux_Ubuntu.sh
 Windows.bat
 - Script that does basic securing, checklist is still needed to fully harden the system.
 
+
+CPScrapper.py
+- This is just a simple web scraper that I made with python3 that will scrape all the scores from the cyberpatriot scoreboard and put them in an excel spreadsheet for future use.
+
 *Please note that none of these are meant to be used for competition*
